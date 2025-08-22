@@ -1,7 +1,8 @@
-Store Rating System - FullStack Application
+# Store Rating System - FullStack Application
 A comprehensive web application that allows users to submit ratings for stores. Built with Express.js, PostgreSQL, and React.js.
-Features
-System Administrator
+## Features
+
+### System Administrator
 
 ✅ Add new stores, normal users, and admin users
 ✅ Dashboard with total users, stores, and ratings
@@ -9,7 +10,7 @@ System Administrator
 ✅ Sort all listings by Name, Email, Address, and Role
 ✅ View user details including ratings for store owners
 
-Normal User
+### Normal User
 
 ✅ Sign up and login to the platform
 ✅ Update password after logging in
@@ -25,15 +26,15 @@ Store Owner
 ✅ View dashboard with average rating
 ✅ See list of users who rated their store
 
-Tech Stack
+### Tech Stack
 
 Backend: Express.js with Node.js
-Database: MySQL
+Database: MongoDB
 Frontend: React.js with Tailwind CSS
 Authentication: JWT tokens
 Password Hashing: bcryptjs
 
-Setup Instructions
+### Setup Instructions
 Prerequisites
 
 Node.js (v14 or higher)
