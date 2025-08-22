@@ -1,4 +1,9 @@
 const express = require("express");
+const { validateName, validateEmail, validateAddress, validatePassword } = require("../utils/validation");
+const bcrypt = require('bcryptjs');
+const jwt = require('jsonwebtoken');
+const JWT_SECRET = process.env.JWT_SECRET || 'your-secret-key';
+
 
 const authRouter = express.Router();
 

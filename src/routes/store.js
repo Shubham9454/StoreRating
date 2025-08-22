@@ -1,4 +1,5 @@
 const express = require("express");
+const authenticateToken = require("../middlewares/auth");
 const storeRouter = express.Router();
 
 app.get('/api/stores', authenticateToken, async (req, res) => {

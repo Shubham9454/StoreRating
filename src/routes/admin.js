@@ -1,4 +1,10 @@
 const express = require("express");
+const bcrypt = require('bcryptjs');
+const authenticateToken = require("../middlewares/auth");
+const requireRole = require("../middlewares/role");
+const { validateName, validateEmail, validateAddress, validatePassword } = require("../utils/validation");
+
+
 const adminRouter = express.Router();
 
 adminRouter.get('/api/admin/dashboard', authenticateToken, requireRole(['admin']), async (req, res) => {
