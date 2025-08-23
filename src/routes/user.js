@@ -2,6 +2,7 @@ const express = require("express");
 const authenticateToken = require("../middlewares/auth");
 const { validatePassword } = require("../utils/validation");
 const bcrypt = require("bcryptjs");
+const { pool } = require("../config/database");
 
 const userRouter = express.Router();
 

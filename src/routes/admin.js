@@ -3,6 +3,7 @@ const bcrypt = require('bcryptjs');
 const authenticateToken = require("../middlewares/auth");
 const requireRole = require("../middlewares/role");
 const { validateName, validateEmail, validateAddress, validatePassword } = require("../utils/validation");
+const { pool } = require("../config/database");
 
 
 const adminRouter = express.Router();

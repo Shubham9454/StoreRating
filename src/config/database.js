@@ -1,10 +1,12 @@
-const mongoose = require("mongoose");
+import mysql from "mysql2/promise";
 
-const connectDB = async () =>{
-
-    await mongoose.connect(
-    "mongodb+srv://shubhamy4417:Y8gjYwH3JPUwy00X@cluster0.d1pfttf.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0");
-};
-
-module.exports = connectDB;
+export const pool = mysql.createPool({
+  host: "localhost",
+  user: "root",
+  password: "Shubhamy1234!@#$",
+  database: "store_rating_db",
+  waitForConnections: true,
+  connectionLimit: 10,
+  queueLimit: 0
+});
 

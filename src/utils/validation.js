@@ -2,7 +2,7 @@ const validator = require("validator");
 
 // Validation functions
 const validateName = (name) => {
-  return name && name.length >= 20 && name.length <= 60;
+  return name && name.length >= 10 && name.length <= 60;
 };
 
 const validateAddress = (address) => {

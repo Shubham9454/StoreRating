@@ -1,6 +1,7 @@
 const express = require("express");
 const authenticateToken = require("../middlewares/auth");
 const requireRole = require("../middlewares/role");
+const { pool } = require("../config/database");
 const storeOwnerRouter = express.Router();
 
 storeOwnerRouter.get('/api/store-owner/dashboard', authenticateToken, requireRole(['store_owner']), async (req, res) => {

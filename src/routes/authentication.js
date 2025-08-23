@@ -2,6 +2,7 @@ const express = require("express");
 const { validateName, validateEmail, validateAddress, validatePassword } = require("../utils/validation");
 const bcrypt = require('bcryptjs');
 const jwt = require('jsonwebtoken');
+const {pool} = require("../config/database");
 const JWT_SECRET = process.env.JWT_SECRET || 'your-secret-key';
 
 
@@ -9,7 +10,7 @@ const authRouter = express.Router();
 
 authRouter.post('/api/auth/register', async (req, res) => {
   try {
-    const { name, email, address, password } = req.body;
+    const { name, email, address, password, role } = req.body;
 
     // Validation
     if (!validateName(name)) {
@@ -22,11 +23,13 @@ authRouter.post('/api/auth/register', async (req, res) => {
       return res.status(400).json({ error: 'Address must be max 400 characters' });
     }
     if (!validatePassword(password)) {
-      return res.status(400).json({ error: 'Password must be 8-16 characters with at least one uppercase letter and one special character' });
+      return res.status(400).json({ 
+        error: 'Password must be 8-16 characters with at least one uppercase letter and one special character' 
+      });
     }
 
     // Check if user exists
-    const [userExists] = await pool.execute('SELECT id FROM users WHERE email = ?', [email]);
+    const [userExists] = await pool.query('SELECT id FROM users WHERE email = ?', [email]);
     if (userExists.length > 0) {
       return res.status(400).json({ error: 'User already exists' });
     }
@@ -34,14 +37,18 @@ authRouter.post('/api/auth/register', async (req, res) => {
     // Hash password
     const hashedPassword = await bcrypt.hash(password, 10);
 
-    // Insert user
-    const [result] = await pool.execute(
+    // Allowed roles
+    const allowedRoles = ['normal_user', 'store_owner', 'admin'];
+    const userRole = allowedRoles.includes(role) ? role : 'normal_user';
+
+    // Insert user with role
+    const [result] = await pool.query(
       'INSERT INTO users (name, email, address, password, role) VALUES (?, ?, ?, ?, ?)',
-      [name, email, address, hashedPassword, 'normal_user']
+      [name, email, address, hashedPassword, userRole]
     );
 
     // Get the inserted user
-    const [newUser] = await pool.execute(
+    const [newUser] = await pool.query(
       'SELECT id, name, email, address, role FROM users WHERE id = ?',
       [result.insertId]
     );
@@ -50,6 +57,7 @@ authRouter.post('/api/auth/register', async (req, res) => {
       message: 'User registered successfully',
       user: newUser[0]
     });
+
   } catch (error) {
     console.error(error);
     res.status(500).json({ error: 'Server error' });
