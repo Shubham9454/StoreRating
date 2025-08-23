@@ -2,7 +2,7 @@ const express = require("express");
 const authenticateToken = require("../middlewares/auth");
 const storeRouter = express.Router();
 
-app.get('/api/stores', authenticateToken, async (req, res) => {
+storeRouter.get('/api/stores', authenticateToken, async (req, res) => {
   try {
     const { search, sortBy = 'name', sortOrder = 'ASC' } = req.query;
     const userId = req.user.id;

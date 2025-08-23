@@ -4,7 +4,7 @@ const requireRole = require("../middlewares/role");
 
 const ratingRouter = express.Router();
 
-app.post('/api/ratings', authenticateToken, requireRole(['normal_user']), async (req, res) => {
+ratingRouter.post('/api/ratings', authenticateToken, requireRole(['normal_user']), async (req, res) => {
   try {
     const { storeId, rating } = req.body;
     const userId = req.user.id;

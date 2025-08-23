@@ -3,7 +3,7 @@ const authenticateToken = require("../middlewares/auth");
 const requireRole = require("../middlewares/role");
 const storeOwnerRouter = express.Router();
 
-app.get('/api/store-owner/dashboard', authenticateToken, requireRole(['store_owner']), async (req, res) => {
+storeOwnerRouter.get('/api/store-owner/dashboard', authenticateToken, requireRole(['store_owner']), async (req, res) => {
   try {
     const userId = req.user.id;
 
