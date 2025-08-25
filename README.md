@@ -35,7 +35,8 @@ Authentication: JWT tokens
 Password Hashing: bcryptjs
 
 ## Setup Instructions
-Prerequisites
+
+### Prerequisites
 
 Node.js (v14 or higher)
 MySQL (v8.0 or higher)
