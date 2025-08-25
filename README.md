@@ -40,7 +40,7 @@ It is built with Node.js, Express.js, and MySQL, with secure authentication and 
 
 ✅ See list of users who rated their store
 
-### Tech Stack
+## Tech Stack
 
 Backend: Node.js, Express.js
 
@@ -54,8 +54,8 @@ Validation: validator
 
 Frontend (separate repo): React.js with Tailwind CSS
 
-⚙️ Setup Instructions
-🔑 Prerequisites
+## Setup Instructions
+### Prerequisites
 
 Node.js (v14 or higher)
 
@@ -115,7 +115,7 @@ npm start
 Server will run at:
 👉 http://localhost:5000
 
-📡 API Endpoints (Examples)
+### API Endpoints (Examples)
 Authentication
 
 POST /api/auth/register → Register user
@@ -136,7 +136,7 @@ PUT /api/ratings/:id → Update rating
 
 GET /api/ratings/user/:id → Get user’s ratings
 
-🧑‍💻 Contributing
+## Contributing
 
 Fork this repo
 
