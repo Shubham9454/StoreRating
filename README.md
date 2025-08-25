@@ -1,10 +1,10 @@
-Store Rating System - Backend
+# Store Rating System - Backend
 
 This is the backend service for the Store Rating System — a web application where users can register, rate stores, and manage ratings.
 It is built with Node.js, Express.js, and MySQL, with secure authentication and role-based access.
 
-🚀 Features
-👨‍💼 System Administrator
+## Features
+### System Administrator
 
 ✅ Add new stores, normal users, and store owners/admins
 
@@ -16,7 +16,7 @@ It is built with Node.js, Express.js, and MySQL, with secure authentication and 
 
 ✅ View user details including ratings for store owners
 
-👤 Normal User
+### Normal User
 
 ✅ Sign up and login securely
 
@@ -30,7 +30,7 @@ It is built with Node.js, Express.js, and MySQL, with secure authentication and 
 
 ✅ View personal submitted ratings
 
-🏪 Store Owner
+### Store Owner
 
 ✅ Login to the platform
 
@@ -40,7 +40,7 @@ It is built with Node.js, Express.js, and MySQL, with secure authentication and 
 
 ✅ See list of users who rated their store
 
-🛠 Tech Stack
+### Tech Stack
 
 Backend: Node.js, Express.js
 
